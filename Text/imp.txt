@@ -1,0 +1,34 @@
+  protected void Button3_Click(object sender, EventArgs e)
+    {
+        SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["OBSConnectionString"].ConnectionString);
+        string imagename = "";
+        imagename = "D:\books\\kaguya.Jpeg";
+       // if(File.Exists(imagename))
+        //{
+            byte[] content=ImageToStream(imagename);
+            myConnection.Open();
+            SqlCommand cmd= new SqlCommand("Insert into test_img(image) Values (@img)",myConnection);
+            cmd.Parameters.AddWithValue("@img",content);
+            cmd.ExecuteNonQuery();
+            myConnection.Close();
+            Response.Write("Image chala gaya under");
+        //}
+}
+
+  private byte[] ImageToStream(string fileName)
+    {
+        MemoryStream stream = new MemoryStream();
+        try
+        {
+            Bitmap img = new Bitmap(fileName);
+            img.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+        catch (Exception ex)
+        {
+            Response.Write("Hello Sir" + ex);
+        }
+        return stream.ToArray();
+
+    }
+
+}

@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminHomemaster.master.cs" Inherits="MasterPages_AdminHomemaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Online BookStore-Admin Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style1.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" class="form-group">
+   <!-- Navigation Bar and Search Button   --> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand order-1 order-lg-0 ml-lg-0 mr-2 ml-auto" href="#"><img src="../images/image1.png" height="30" /></a>
+        <button class="navbar-toggler align-self-start" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-light p-3 p-lg-0 mt-5 mt-lg-0 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end mobileMenu" id="navbarSupportedContent">
+ 
+              <ul id="hel" class="navbar-nav align-self-stretch">
+                  <li class="nav-item active"><a class="nav-link" href="#"><b class="b"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <asp:Label ID="Lbl1" runat="server"></asp:Label> </b></a></li>
+                   <li class="nav-item active"><a class="nav-link" href="../Admin/AdminMain.aspx"><b class="b"><i class="fa fa-home" aria-hidden="true"></i> Home</b></a></li>
+                   <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b class="b"><i class="fa fa-book" aria-hidden="true"></i> Books</b></a>
+                     <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item coll" href="../Admin/addBooks.aspx">Add Books</a>
+                         <a class="dropdown-item coll" href="../Admin/deleteBooks.aspx">Update/Delete Books</a>
+                    </div>
+                    </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b class="b"><i class="fa fa-cog" aria-hidden="true"></i> Manage</b></a>
+                     <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item coll" href="../Admin/addCategory.aspx">Add Category</a>
+                         <a class="dropdown-item coll" href="../Admin/ViewUser.aspx">View all Users</a>
+                         <a class="dropdown-item coll" href="../Admin/displayOrder.aspx">View Orders</a>
+                         <a class="dropdown-item coll" href="../Admin/viewRequest.aspx">View Books Request</a>
+                         <a class="dropdown-item coll" href="../Admin/viewComplaint.aspx">Customer Complaints</a>
+                    </div>
+                    </li>
+                   <li class="nav-item" style="margin-top:7px;margin-left:5px;"><b class="b"><i class="fa fa-sign-in" aria-hidden="true"></i></b>
+                    <asp:Button ID="signout" runat="server" Text="Logout" ClientIDMode="Static" OnClick="signout_Click" /></li>
+                   </ul>
+            </div>
+      </div>
+    </nav>
+<!--<div class="overlay"></div>
+   <div class="container my-5">
+     <div class="col-md-12">
+        </div>
+      </div> -->
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder> 
+
+
+    <div class="copyright">
+  <div class="footer-copyright text-center py-3">
+      <a href="#">Home</a> |
+      <a href="#">Add Books</a> |
+      <a href="#">Delete Books</a> |
+      <a href="#">Alter Books</a> 
+      <a href="#">Manage</a> |
+      <a href="#">View Requests</a> |
+      <a href="#">View Orders</a> | <br /><br />
+    <p class="p">&copy; Copyright
+    <a href="#">onlinebookstore.com</a></p>
+  </div>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/script1.js"></script>
+    </form>
+</body>
+</html>

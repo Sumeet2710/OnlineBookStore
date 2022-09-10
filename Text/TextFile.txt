@@ -1,0 +1,114 @@
+﻿$(document).ready(function () {
+    $('#Button1').click(function (e) {
+        var password = $("#TextBox2").val();
+        var confirmPassword = $("#TextBox3").val();
+        var contact = $("#TextBox6").val();
+        var email = $("#TextBox7").val();
+
+        if ($('#TextBox1').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "UserName Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox2').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "Password Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox3').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "Confirm Password Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox4').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "First Name Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox5').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "Last Name Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox6').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "Contact Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if ($('#TextBox7').val().trim() == '') {
+            e.preventDefault();
+            swal({
+                title: "Error!.",
+                text: "Email Field is Empty",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if (password != confirmPassword) {
+            e.preventDefault();
+            swal({
+                title: "Invalid Password!.",
+                text: "Password Doesn't Match",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if (contact.length != 10) {
+            e.preventDefault();
+            swal({
+                title: "Invalid Contact!.",
+                text: "Please check Contact Number",
+                icon: "error",
+                button: "OK",
+            });
+        }
+        else if (validateEmailAddress(email)) {
+            return true;
+        }
+        else {
+            e.preventDefault();
+            swal({
+                title: "Invalid Email Address!!",
+                text: "Please enter valid email e.g abc@domain.com",
+                icon: "error",
+                button: "OK",
+            });
+            return false;
+        }
+    });
+
+});
+
+function validateEmailAddress(email) {
+    var expr = /^[a-zA-Z0-9._]+[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+    if (expr.test(email)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

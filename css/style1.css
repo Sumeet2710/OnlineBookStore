@@ -1,0 +1,168 @@
+﻿/*--------------Registration----------------*/
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    font-family:Verdana;
+    font-size: 14px;
+    background:#f2f2f2;
+}
+.wrapper {
+    background-color: #fff;
+    width: 500px;
+    padding:25px;
+    margin: 50px auto 0;
+    border-top: 5px solid #d33b33;
+    box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+    margin-bottom:100px
+}
+.wrapper h2 {
+    font-size: 24px;
+    line-height: 24px;
+    padding-bottom: 30px;
+    text-align:center;
+    }
+
+.input-name {
+    width: 90%;
+    position: relative;
+    margin: 20px auto;
+}
+.lock {
+    padding: 8px 11px;
+}
+.name {
+    width: 45%;
+    padding: 8px 0 8px 40px; 
+}
+.input-name span {
+    margin-left: 30px;
+}
+.text-name {
+    width: 100%;
+    padding: 8px 0px 8px 40px;
+}
+.input-name i{
+    position: absolute;
+    font-size: 18px;
+    border-right:1px solid #cccccc;
+}
+.email {
+    padding: 8px;
+}
+
+#msgbox {
+margin-left: 22px;
+padding-left: 10px;
+width: 85%
+}
+
+.text-name, .name {
+    border: 1px solid #cccccc;
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+.text-name :hover, .name:hover {
+    background-color:#fafafa;
+}
+.text-name:focus, .name:focus {
+    -webkit-box-shadow: 0 0 2px 1px rgba(211, 59, 51, 0.5);
+    -moz-box-shadow: 0 0 2px 1px rgba(211, 59, 51, 0.5);
+    -box-shadow: 0 0 2px 1px rgba(211, 59, 51, 0.5);
+    background: #fafafa;
+}
+.bttn {
+    margin-top:30px;
+    margin-left:110px;
+    width: 73%;
+}
+.divider {
+    margin-top: 30px;
+    margin-bottom:10px;
+    border-top: solid 1px #999;
+}
+.spell {
+    margin-left:20px;
+}
+.button {
+    background-color: #d33b33;
+    height: 35px;
+    line-height: 35px;
+    width: 40%;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    margin-left:15px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-right:15px;
+}
+.space-vert {
+    margin-top: 20px;
+}
+.imp label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.danger {
+    font-weight: 500;
+    color: red;
+}
+.danger2 {
+    font-weight: 500;
+    color: red;
+}
+
+#signout {
+    border: none;
+    outline: none;
+    background-color: #f8f8ff !important;
+    color: #d33b33 !important;
+    font-weight:bold;
+}
+#manage {
+    border: none;
+    outline: none;
+    background-color: #f8f8ff !important;
+    color: #d33b33 !important;
+    font-weight:bold;
+}
+#labelval {
+    margin-left:20px;
+    font-family: sans-serif;
+    font-weight: 550;
+    color: red;
+}
+
+@media (max-width:480px) {
+    .wrapper {
+        width:100%;
+    }
+    .input-name {
+        margin-bottom: -10px;
+    }
+    .name {
+        width: 100%;
+        padding: 8px 0 8px 40px;
+        margin-bottom: 10px;
+    }
+    .input-name span {
+        padding: 0;
+        margin: 0;
+    }
+    .msg {
+         margin-top: 20px;
+    }
+
+}
+
+

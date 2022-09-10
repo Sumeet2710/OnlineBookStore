@@ -1,0 +1,133 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserHomemaster.master.cs" Inherits="UserHomemaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Online BookStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style1.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form runat="server" id="form2" class="form-group">
+<!-- Navigation Bar and Search Button   --> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand order-1 order-lg-0 ml-lg-0 mr-2 ml-auto" href="main.aspx"><img src="../images/image1.png" height="30" /></a>
+        <button class="navbar-toggler align-self-start" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-light p-3 p-lg-0 mt-5 mt-lg-0 d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end mobileMenu" id="navbarSupportedContent">
+             <div class="navbar-brand order-0 order-lg-0 ml-lg-0 mr-2 mr-auto">
+              <asp:TextBox ID="searchtext" runat="server" width="250px" placeholder="Looking for Books?"  class="mr-sm-2"></asp:TextBox>
+              <button type="submit" id="searchbtn" runat="server" onserverclick="searchBook" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+              <ul id="hel" class="navbar-nav align-self-stretch">
+                  <li class="nav-item active"><a class="nav-link" href="../User/UserProfile.aspx"><b class="b"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <asp:Label ID="Lbl1" runat="server"></asp:Label> </b></a></li>
+                   <li class="nav-item active"><a class="nav-link" href="../UserMain.aspx"><b class="b"><i class="fa fa-home" aria-hidden="true"></i> Home</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../User/displayOrder.aspx"><b class="b"><%--<i class="fa fa-phone" aria-hidden="true"></i>--%> View Orders</b></a></li>
+                   <li class="nav-item"><a class="nav-link" href="../User/UsrContus.aspx"><b class="b"><i class="fa fa-phone" aria-hidden="true"></i> Contact</b></a></li>
+                   <li class="nav-item"><a href="../User/UsrAddCart.aspx" type="button" class="btn btn-light"><b class="b"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</b> <span class="badge badge-danger"><asp:Label ID="Ccount" runat="server" Text="0"></asp:Label></span></a></li>
+                   <li class="nav-item" style="margin-top:7px;margin-left:5px;"><b class="b"><i class="fa fa-sign-in" aria-hidden="true"></i></b>
+                    <asp:Button ID="signout" runat="server" Text="Logout" ClientIDMode="Static" OnClick="signout_Click" /></li>
+                   </ul>
+            </div>
+      </div>
+    </nav>
+<!--<div class="overlay"></div>
+   <div class="container my-5">
+     <div class="col-md-12">
+        </div>
+      </div> -->
+
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+       </asp:ContentPlaceHolder>
+<div class="footer">
+<footer class="page-footer">
+  <div class="container text-center text-md-left mt-5">
+    <div class="row">
+      <div class="col-md-3 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold" style="color:#fff;">Online Bookstore</h6>
+        <hr class="bg-danger mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
+        <p class="mt-2">At Online Bookstore we are working towards bringing our retail experience to the web and we strive to uphold this prestige by serving our customers better. </p>
+		<p class="mt-2">Thank You</p> 
+        <h6 class="text-uppercase font-weight-bold" style="color:#fff;">Social Media</h6>
+          <hr class="bg-danger mb-4 mt-0 d-inline-block mx-auto" style="width: 125px; height: 2px" />
+          <ul class="socialMenu">
+              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      <div class="col-md-2 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold" style="color:#fff;">Help</h6>
+        <hr class="bg-danger mb-4 mt-0 d-inline-block mx-auto" style="width: 85px; height: 2px"/>
+          <div class="liststyle">
+           <ul class="list-unstyled">
+            <li class="my-2"><a href="../User/ReqBookUsr.aspx">Request a Book</a></li>
+            <li class="my-2"><a href="#">Privacy Policies</a></li>        
+            <li class="my-2"><a href="../User/contusUsr.aspx">Contact Us</a></li>
+            <li class="my-2"> <a href="#">Return Issue</a></li>         
+          </ul>
+      </div>
+            </div>
+  
+      <div class="col-md-2 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold" style="color:#fff;">Useful links</h6>
+        <hr class="bg-danger mb-4 mt-0 d-inline-block mx-auto" style="width: 110px; height: 2px"/>
+          <div class="liststyle">
+          <ul class="list-unstyled">
+            <li class="my-2"><a href="../UserMain.aspx">Home</a></li>        
+            <li class="my-2"><a href="#Books">Books</a></li>
+            <li class="my-2"><a href="#Services">About</a></li>
+            <li class="my-2"> <a href="../User/contusUsr.aspx">Contact</a></li>         
+          </ul>
+      </div>
+      </div>
+  <div class="col-md-2 mx-auto mb-4">
+        <h6 class="text-uppercase font-weight-bold" style="color:#fff;">Contact</h6>
+        <hr class="bg-danger mb-4 mt-0 d-inline-block mx-auto" style="width: 75px; height: 2px"/>
+           <div class="footer-link-contact">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p><i class="fa fa-home"></i>ABCD Ward. Rno 123 <br/>Goa Street Queens,<br/> MH 400001 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fa fa-phone-square"></i><a href="tel:+1-1234567890">1234567890</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fa fa-envelope"></i><a href="mailto:bookstore@gmail.com">onlinebookstore.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+      </div>
+  </div>
+</div>  
+    <div class="copyright">
+  <div class="footer-copyright text-center py-3">
+    <p class="p">&copy; Copyright
+    <a href="#">onlinebookstore.com</a></p>
+  </div>
+        </div>
+</footer>
+</div> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/script1.js"></script>
+    </form>
+</body>
+</html>
